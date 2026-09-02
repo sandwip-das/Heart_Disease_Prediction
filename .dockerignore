@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+env/
+.pytest_cache/
+.ipynb_checkpoints/
+*.git
+*.gitattributes
+.DS_Store
