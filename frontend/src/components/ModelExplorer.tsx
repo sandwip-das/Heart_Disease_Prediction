@@ -3,6 +3,7 @@
 import React from 'react';
 import { ModelInfo } from '../lib/types';
 import { FEATURE_IMPORTANCE_DATA } from '../lib/constants';
+import { API_DOCS_URL } from '../lib/api';
 import {
   BrainCircuit,
   BarChart3,
@@ -61,7 +62,7 @@ export const ModelExplorer: React.FC<ModelExplorerProps> = ({ modelInfo }) => {
             </span>
 
             <a
-              href="http://127.0.0.1:8000/docs"
+              href={API_DOCS_URL}
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-cyan-950/60 to-slate-900 border border-cyan-500/40 hover:border-cyan-400 text-cyan-300 hover:text-white transition-all shadow-md shadow-cyan-950/40 group font-medium cursor-pointer"

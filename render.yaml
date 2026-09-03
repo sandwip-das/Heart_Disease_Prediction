@@ -1,0 +1,35 @@
+services:
+  # -------------------------------------------------------------
+  # 1. Heart Disease Prediction Backend API (FastAPI)
+  # -------------------------------------------------------------
+  - type: web
+    name: heart-disease-api
+    runtime: python
+    plan: free
+    region: oregon
+    buildCommand: pip install --upgrade pip && pip install -r requirements.txt
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    healthCheckPath: /health
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+
+  # -------------------------------------------------------------
+  # 2. Heart Disease Prediction UI (Next.js)
+  # -------------------------------------------------------------
+  - type: web
+    name: heart-disease-ui
+    runtime: node
+    plan: free
+    region: oregon
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.17.0
+      - key: NEXT_PUBLIC_API_URL
+        fromService:
+          type: web
+          name: heart-disease-api
+          property: host

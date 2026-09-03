@@ -12,6 +12,7 @@ import {
   BookOpen,
   Info,
 } from 'lucide-react';
+import { API_DOCS_URL } from '../lib/api';
 
 interface FooterProps {
   onNavigateTab?: (tab: 'assessment' | 'model' | 'batch') => void;
@@ -127,7 +128,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigateTab }) => {
                   ISO 27001 Architecture Standard
                 </span>
                 <a
-                  href="http://127.0.0.1:8000/docs"
+                  href={API_DOCS_URL}
                   target="_blank"
                   rel="noreferrer"
                   className="text-cyan-400 hover:text-cyan-300 transition-colors inline-flex items-center gap-1 font-medium"
